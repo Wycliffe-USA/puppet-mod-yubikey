@@ -1,8 +1,8 @@
 #Defining the type yubikey:key to allow users to authenticate with Yubikeys.
 define yubikey::key ($token,$home,$group) {
-  validate_string($home)
-  validate_string($group)
-  validate_array($token)
+  # validate_string($home)
+  # validate_string($group)
+  # validate_array($token)
   $tokens=join($token,':')
   file { "${home}/.yubico/" :
     ensure => directory,

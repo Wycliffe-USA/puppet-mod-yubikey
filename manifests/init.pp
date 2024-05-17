@@ -53,12 +53,12 @@ class yubikey (
   $pkgname    = $yubikey::params::pkgname,
   $managedeps = $yubikey::params::managedeps,
 ) inherits yubikey::params {
-  validate_re($control, $yubikey::params::validcontrol)
-  validate_array($arguments)
-  validate_array($service)
-  validate_string($beforemod)
-  validate_string($pkgname)
-  validate_bool($managedeps)
+  # validate_legacy($control, $yubikey::params::validcontrol)
+  # validate_array($arguments)
+  # validate_array($service)
+  # validate_string($beforemod)
+  # validate_string($pkgname)
+  # validate_bool($managedeps)
   class { '::yubikey::install':
     pkgname    => $pkgname,
     managedeps => $managedeps,

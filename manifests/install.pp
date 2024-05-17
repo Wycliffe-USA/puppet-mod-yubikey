@@ -5,8 +5,8 @@ class yubikey::install (
   $pkgname,
   $managedeps,
 ) {
-  validate_string($pkgname)
-  validate_bool($managedeps)
+  # validate_string($pkgname)
+  # validate_bool($managedeps)
   if $::kernel =='Linux' {
     if $::osfamily == 'RedHat' and $::operatingsystem !~ /Fedora|Amazon/ {
       if $managedeps {

@@ -6,10 +6,10 @@ class yubikey::config (
   $beforemod=$yubikey::params::beforemod,
 ) inherits yubikey::params {
   require ::yubikey::install
-  validate_re($control, $yubikey::params::validcontrol)
-  validate_array($arguments)
-  validate_array($service)
-  validate_string($beforemod)
+  # validate_legacy($control, $yubikey::params::validcontrol)
+  # validate_array($arguments)
+  # validate_array($service)
+  # validate_string($beforemod)
   if $::kernel =='Linux' and
   ($::osfamily == 'RedHat' or $::osfamily == 'Debian') {
     if 'debug' in $arguments {
