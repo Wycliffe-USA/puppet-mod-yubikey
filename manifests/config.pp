@@ -11,7 +11,7 @@ class yubikey::config (
   # validate_array($service)
   # validate_string($beforemod)
   if $::kernel =='Linux' and
-  ($::osfamily == 'RedHat' or $::osfamily == 'Debian') {
+  ($facts['os']['family'] == 'RedHat' or $facts['os']['family'] == 'Debian') {
     if 'debug' in $arguments {
       file { '/var/run/pam-debug.log' :
         ensure => present,
@@ -25,6 +25,6 @@ class yubikey::config (
     }
 
   } else {
-    notice ("${::operatingsystem} is not supported")
+    notice ("${facts['os']['name']} is not supported")
   }
 }

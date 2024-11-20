@@ -1,10 +1,10 @@
 ##Default parameters for the module
 class yubikey::params {
-  if $::osfamily == 'RedHat' {
+  if $facts['os']['family'] == 'RedHat' {
     $service = ['system-auth','password-auth']
     $pkgname = 'pam_yubico'
   }
-  elsif $::osfamily == 'Debian' {
+  elsif $facts['os']['family'] == 'Debian' {
     $service = ['common-auth']
     $pkgname = 'libpam-yubico'
   }
