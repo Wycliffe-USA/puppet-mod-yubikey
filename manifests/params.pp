@@ -4,6 +4,10 @@ class yubikey::params {
     $service = ['system-auth','password-auth']
     $pkgname = 'pam_yubico'
   }
+  elsif $facts['os']['family'] == 'Amazon' {
+    $service = ['common-auth']
+    $pkgname = 'libpam-yubico'
+  }
   elsif $facts['os']['family'] == 'Debian' {
     $service = ['common-auth']
     $pkgname = 'libpam-yubico'

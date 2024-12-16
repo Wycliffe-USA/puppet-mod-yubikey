@@ -16,6 +16,10 @@ class yubikey::install (
         ensure  => installed,
         require => Class['epel'],
       }
+    } elsif $facts['os']['family'] == 'RedHat' and $facts['os']['name'] =~ /Amazon/ {
+      package { $pkgname :
+        ensure => installed,
+      }
     } elsif $facts['os']['family'] == 'RedHat' and $facts['os']['name'] =~ /Fedora/ {
       package { $pkgname :
         ensure => installed,
@@ -30,9 +34,9 @@ class yubikey::install (
         require => Apt::Ppa['ppa:yubico/stable'],
       }
     } else {
-      fail ("${facts['os']['name']} is not supported")
+      fail ("Yubikey Install: OS ${facts['os']['name']} is not supported")
     }
   } else {
-    fail ("${facts['os']['name']} is not supported")
+    fail ("Yubikey Install: Kernel ${$::kernel} and ${facts['os']['name']} is not supported")
   }
 }

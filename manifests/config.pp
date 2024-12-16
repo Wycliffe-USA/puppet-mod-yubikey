@@ -25,6 +25,6 @@ class yubikey::config (
     }
 
   } else {
-    notice ("${facts['os']['name']} is not supported")
+    notice ("Yubikey Config: OS ${facts['os']['name']} is not supported")
   }
 }
