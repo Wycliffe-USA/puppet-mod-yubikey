@@ -33,10 +33,12 @@ class yubikey::install (
         ensure  => installed,
         require => Apt::Ppa['ppa:yubico/stable'],
       }
-    } else {
-      fail ("Yubikey Install: OS ${facts['os']['name']} is not supported")
     }
-  } else {
-    fail ("Yubikey Install: Kernel ${$::kernel} and ${facts['os']['name']} is not supported")
+    #  else {
+    #   fail ("Yubikey Install: OS ${facts['os']['name']} is not supported")
+    # }
   }
+  #  else {
+  #   fail ("Yubikey Install: Kernel ${$::kernel} and ${facts['os']['name']} is not supported")
+  # }
 }
